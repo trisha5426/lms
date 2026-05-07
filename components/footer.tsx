@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Mail } from "lucide-react";
 
 function ThreadsIcon({ className }: { className?: string }) {
   return (
@@ -45,74 +46,114 @@ function LinkedInIcon({ className }: { className?: string }) {
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+    <footer id="contact" className="bg-card border-t border-border">
+      <div className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
-          <div className="flex flex-col items-center md:items-start">
-            <Link href="/" className="text-2xl font-bold">
-              Lumin
+          <div className="lg:col-span-2">
+            <Link href="/" className="flex items-center gap-2">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
+                <span className="text-lg font-bold text-primary-foreground">L</span>
+              </div>
+              <span className="text-xl font-bold text-foreground">Lumin</span>
             </Link>
-            <p className="mt-2 text-sm text-primary-foreground/70">
-              Empowering LL.B. students to excel
+            <p className="mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed">
+              Empowering LL.B. students at Delhi University to excel in their 
+              semester exams through comprehensive and accessible learning resources.
             </p>
           </div>
 
-          {/* Social and Contact */}
-          <div className="flex flex-col items-center gap-4 md:items-end">
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium">Follow us</span>
-              <div className="flex gap-4">
-                <Link
-                  href="https://threads.net"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  aria-label="Threads"
-                >
-                  <ThreadsIcon className="h-5 w-5" />
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">Quick Links</h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <Link href="#home" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Home
                 </Link>
-                <Link
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  aria-label="Instagram"
-                >
-                  <InstagramIcon className="h-5 w-5" />
+              </li>
+              <li>
+                <Link href="#features" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Features
                 </Link>
-                <Link
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <LinkedInIcon className="h-5 w-5" />
+              </li>
+              <li>
+                <Link href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  About Us
                 </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Connect */}
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">Connect</h3>
+            <div className="mt-4 space-y-4">
+              {/* Social Links */}
+              <div>
+                <p className="text-sm text-muted-foreground mb-3">Follow us</p>
+                <div className="flex gap-3">
+                  <Link
+                    href="https://threads.net"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                    aria-label="Threads"
+                  >
+                    <ThreadsIcon className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <InstagramIcon className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                    aria-label="LinkedIn"
+                  >
+                    <LinkedInIcon className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
-            </div>
 
-            <div className="flex items-center gap-2 text-sm">
-              <span className="text-primary-foreground/70">OR</span>
-            </div>
+              {/* Divider */}
+              <div className="flex items-center gap-3">
+                <div className="h-px flex-1 bg-border"></div>
+                <span className="text-xs text-muted-foreground">OR</span>
+                <div className="h-px flex-1 bg-border"></div>
+              </div>
 
-            <div className="text-sm">
-              <span className="text-primary-foreground/70">Mail us at </span>
+              {/* Email */}
               <a
                 href="mailto:lumin9279@gmail.com"
-                className="font-medium hover:underline"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
+                <Mail className="h-4 w-4" />
                 lumin9279@gmail.com
               </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-primary-foreground/10 pt-8 text-center">
-          <p className="text-sm text-primary-foreground/60">
+        <div className="mt-12 border-t border-border pt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Lumin. All rights reserved.
           </p>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
