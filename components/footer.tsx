@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, Users, PlayCircle, BookOpen, TrendingUp } from "lucide-react";
 
 function ThreadsIcon({ className }: { className?: string }) {
   return (
@@ -45,8 +45,51 @@ function LinkedInIcon({ className }: { className?: string }) {
 }
 
 export function Footer() {
+  const stats = [
+    { icon: Users, value: "100+", label: "Active Users" },
+    { icon: PlayCircle, value: "20+", label: "Video Lectures" },
+    { icon: BookOpen, value: "100+", label: "Study Resources" },
+    { icon: TrendingUp, value: "97%", label: "Success Rate" },
+  ];
+
   return (
     <footer id="contact" className="bg-card border-t border-border">
+      {/* Stats & Navigation Bar */}
+      <div className="bg-primary/5 border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 py-6 lg:px-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            {/* What do you want to learn */}
+            <div className="flex items-center gap-3">
+              <h3 className="text-lg font-semibold text-foreground">
+                What do you want to learn?
+              </h3>
+              <Link
+                href="#features"
+                className="text-sm font-medium text-primary hover:underline"
+              >
+                Explore Courses
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-8">
+              {stats.map((stat) => (
+                <div key={stat.label} className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <stat.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-foreground">{stat.value}</p>
+                    <p className="text-xs text-muted-foreground">{stat.label}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Footer Content */}
       <div className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -136,7 +179,7 @@ export function Footer() {
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                lumin9279@gmail.com
+                Mail us at lumin9279@gmail.com
               </a>
             </div>
           </div>
